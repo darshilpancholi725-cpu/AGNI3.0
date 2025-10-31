@@ -1,0 +1,18 @@
+# A.G.N.I. AI - Production Dependencies
+# Python 3.11+ required
+
+# FastAPI Framework and ASGI Server
+fastapi
+uvicorn[standard]
+
+# Google Generative AI SDK
+google-generativeai
+
+# Environment Variables Management
+python-dotenv
+
+# Request Validation and Serialization
+pydantic
+
+# Production Server
+gunicorn

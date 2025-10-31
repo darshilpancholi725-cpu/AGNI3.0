@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.G.N.I. AI - Advanced News Verification</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>A.G.N.I. AI</span>
+                </div>
+                <nav class="nav">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#how-it-works" class="nav-link">How It Works</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Advanced General News Intelligence</h1>
+                <p class="hero-subtitle">
+                    Powered by cutting-edge AI technology to verify news content and combat misinformation.
+                    Get instant, intelligent analysis of any news claim.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-robot"></i>
+                        <span>AI-Powered</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-shield-check"></i>
+                        <span>Verified Results</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-lightning-bolt"></i>
+                        <span>Instant Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Application Section -->
+    <main class="main">
+        <div class="container">
+            <div class="verification-panel">
+                <div class="panel-header">
+                    <h2>Verify News Content</h2>
+                    <p>Enter a news headline, article excerpt, or claim to verify its accuracy using advanced AI</p>
+                </div>
+                
+                <div class="input-section">
+                    <div class="input-wrapper">
+                        <textarea 
+                            id="news-text" 
+                            placeholder="Enter news headline or article content to verify with A.G.N.I. AI..."
+                            rows="6"
+                            maxlength="5000"
+                        ></textarea>
+                        <div class="character-count">
+                            <span id="char-count">0</span>/5000
+                        </div>
+                    </div>
+                    
+                    <button id="verify-btn" class="verify-button">
+                        <i class="fas fa-brain"></i>
+                        <span>Analyze with A.G.N.I.</span>
+                    </button>
+                </div>
+
+                <!-- Loading State -->
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>A.G.N.I. is analyzing the content using advanced AI algorithms...</p>
+                </div>
+
+                <!-- Results Section -->
+                <div id="results" class="results hidden">
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="result-icon">
+                                <i id="result-icon"></i>
+                            </div>
+                            <div class="result-classification">
+                                <h3 id="classification-text"></h3>
+                                <span id="classification-badge"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="result-body">
+                            <div class="reason-section">
+                                <h4>A.G.N.I. Analysis</h4>
+                                <p id="reason-text"></p>
+                            </div>
+                            
+                            <div class="sources-section">
+                                <h4>Sources</h4>
+                                <div id="sources-list"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="result-footer">
+                            <span class="timestamp">Analyzed at <span id="timestamp"></span></span>
+                            <button class="verify-another-btn" onclick="resetForm()">
+                                <i class="fas fa-redo"></i>
+                                Analyze Another
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error State -->
+                <div id="error" class="error hidden">
+                    <div class="error-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Analysis Failed</h3>
+                    <p id="error-message">A.G.N.I. encountered an error while analyzing the content. Please try again.</p>
+                    <button class="retry-btn" onclick="resetForm()">
+                        <i class="fas fa-redo"></i>
+                        Try Again
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>About A.G.N.I. AI</h2>
+                <p>
+                    <strong>A.G.N.I.</strong> (Advanced General News Intelligence) is a sophisticated AI system that combines 
+                    machine learning and natural language processing to provide accurate news verification and misinformation detection.
+                </p>
+                
+                <div class="features-grid">
+                    <div class="feature">
+                        <i class="fas fa-brain"></i>
+                        <h3>Advanced AI Analysis</h3>
+                        <p>Leverages state-of-the-art language models to understand context and verify factual claims</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <i class="fas fa-shield-check"></i>
+                        <h3>Intelligent Verification</h3>
+                        <p>Multi-layered analysis system that evaluates content credibility and factual accuracy</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Continuous Learning</h3>
+                        <p>AI system continuously improves its accuracy through advanced machine learning techniques</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2>How A.G.N.I. Works</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Content Ingestion</h3>
+                    <p>A.G.N.I. analyzes the submitted text to understand context and extract key claims</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>AI Processing</h3>
+                    <p>Advanced algorithms evaluate the content against known patterns and factual databases</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Smart Classification</h3>
+                    <p>Content is intelligently classified as Verified, Misinformation, or Unverifiable</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="logo">
+                        <i class="fas fa-brain"></i>
+                        <span>A.G.N.I. AI</span>
+                    </div>
+                    <p>&copy; 2025 A.G.N.I. AI - Advanced General News Intelligence. All rights reserved.</p>
+                    <p class="disclaimer">
+                        This AI system provides automated fact-checking assistance. Always verify important information through multiple sources.
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="#about">About A.G.N.I.</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="https://ai.google.dev/gemini-api" target="_blank">Powered by Gemini</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
